@@ -43,10 +43,17 @@ namespace Exercise02 {
         }
 
         private static void Exercise2_6(YearMonth[] ymCollection) {
-            foreach (var ym in ymCollection.OrderByDescending(ym => ym.Year)) {
-                Console.WriteLine(ym);
+            //①月で昇順　②偶数年のみ昇順に出力 ③閏年のみを出力　④すべての年から12月に一番近い月を出力
+            //foreach (var ym in ymCollection.OrderBy(ym => ym.Month)) {
+            //foreach (var ym in ymCollection.Where(ym => ym.Year % 2 == 0).OrderBy(ym => ym.Month)) {
+            //foreach (var ym in ymCollection.Where(ym => ym.Year % 4 == 0).OrderBy(ym => ym.Month)) {
+                foreach (var ym in ymCollection.Where(ym => DateTime.IsLeapYear(ym.Year))) { 
+                    Console.WriteLine(ym);
             }
+                var date = ymCollection.Max(ym => ym.Month);
+                    Console.WriteLine(date);
         }
+
         //4-2-3
         static YearMonth FindFirst21C(YearMonth[] yms) {
             foreach (var ym in yms) {
