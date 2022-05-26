@@ -9,12 +9,11 @@ namespace Exercise02 {
         static void Main(string[] args) {
             int number;
             var inputString = Console.ReadLine();
-            
-            int.TryParse(inputString, out number);
-            Console.WriteLine(number.ToString("#,0"));
-            
-
-
+            if (int.TryParse(inputString, out number)) {
+                Console.WriteLine(number.ToString("#,0"));
+            } else {
+                Console.WriteLine("変換できませんでした。");
+            }
         }
     }
 }
