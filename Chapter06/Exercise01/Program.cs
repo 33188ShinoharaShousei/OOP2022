@@ -32,15 +32,20 @@ namespace Exercise01 {
 
         private static void Exercise1_2(int[] numbers) {
             //最後から2つの要素取り出し
-
-            for (int i = numbers.Length - 2; i < numbers.Length; i++) {
-                Console.WriteLine(numbers[i]);
+            foreach(var n in numbers.Skip(numbers.Length - 2)) {
+                Console.WriteLine(n);
             }
+
+
+            /*for (int i = numbers.Length - 2; i < numbers.Length; i++) {
+                Console.WriteLine(numbers[i]);
+            }*/
 
         }
 
         private static void Exercise1_3(int[] numbers) {
             //数値を文字列へ変換
+
         }
 
         private static void Exercise1_4(int[] numbers) {
