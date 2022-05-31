@@ -36,7 +36,6 @@ namespace Exercise01 {
                 Console.WriteLine(n);
             }
 
-
             /*for (int i = numbers.Length - 2; i < numbers.Length; i++) {
                 Console.WriteLine(numbers[i]);
             }*/
