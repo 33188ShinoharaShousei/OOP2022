@@ -15,11 +15,11 @@ namespace Exercise04 {
         static string ToJapanese(string key) {
             switch (key) {
                 case "Novelist":
-                    return "作家　";
+                    return "作家 : 谷崎潤一郎";
                 case "BestWork":
-                    return "代表作";
+                    return "代表作 : 春琴抄";
                 case "Born":
-                    return "誕生年";
+                    return "誕生年 : 1886年";
             }
             throw new ArgumentException("引数keyは、正しい値ではありません");
         }

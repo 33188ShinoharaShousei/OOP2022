@@ -50,13 +50,25 @@ namespace Exercise03 {
         }
 
         private static void Exercise3_5(string text) {
-            var words = text.Split(' ');
+            /*var words = text.Split(' ');
             var sb = new StringBuilder();
             foreach (var w in words) {
                 sb.Append(w);
             }
             var u = sb.ToString();
-            Console.WriteLine(u);
+            Console.WriteLine(u);*/
+
+            var array = text.Split(' ').ToArray();
+            if (array.Length > 0) {
+                var sb = new StringBuilder();
+                foreach (var word in array.Skip(1)) {
+                    sb.Append(' ');
+                    sb.Append(word);
+                }
+
+                var str = sb.ToString();
+                Console.WriteLine(str);
+            }
         }
     }
 }
