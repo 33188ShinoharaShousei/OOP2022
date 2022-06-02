@@ -44,15 +44,23 @@ namespace Exercise01 {
 
         private static void Exercise1_3(int[] numbers) {
             //数値を文字列へ変換
-
+            var Strings = numbers.Select(n => n.ToString("0000")).ToArray();
+            foreach (var n in Strings) {
+                Console.WriteLine(n);
+            }
         }
 
         private static void Exercise1_4(int[] numbers) {
             //小さい順に並べて先頭の3つを出力
+            foreach (var n in numbers.OrderBy(n => n).Take(3)) {
+                Console.WriteLine(n);
+            }
         }
 
         private static void Exercise1_5(int[] numbers) {
             //重複を排除し10より大きい数がいくつあるか
+            var n = numbers.Distinct().Count(s => s > 10);
+                Console.WriteLine(n);
         }
     }
 }
