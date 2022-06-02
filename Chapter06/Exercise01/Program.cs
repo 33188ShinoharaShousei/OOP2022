@@ -44,7 +44,7 @@ namespace Exercise01 {
 
         private static void Exercise1_3(int[] numbers) {
             //数値を文字列へ変換
-            var Strings = numbers.Select(n => n.ToString("0000")).ToArray();
+            var Strings = numbers.Select(n => n.ToString()).ToArray();
             foreach (var n in Strings) {
                 Console.WriteLine(n);
             }
