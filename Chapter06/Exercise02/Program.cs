@@ -18,7 +18,7 @@ namespace Exercise02 {
        new Book { Title = "楽しいC#プログラミング教室", Price = 2540, Pages = 348 },
     };
 
-            Exercise2_1(books);
+            Exercise2_1(books); 
             Console.WriteLine("-----");
 
             Exercise2_2(books);
@@ -37,6 +37,17 @@ namespace Exercise02 {
             Console.WriteLine("-----");
 
             Exercise2_7(books);
+            Console.WriteLine("-----");
+
+            Exercise2_8(books);
+            Console.WriteLine("-----");
+        }
+
+        private static void Exercise2_8(List<Book> books) {
+            foreach (var n in books.Select((title, index) => new { title.Title, index})) {
+                Console.WriteLine($"{n.index + 1}冊目:{n.Title}");
+            }
+            
         }
 
         private static void Exercise2_1(List<Book> books) {
