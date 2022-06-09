@@ -8,16 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sample0607 {
+namespace AddressBook {
     public partial class Form1 : Form {
         public Form1() {
             InitializeComponent();
         }
-
-        private void btRamdom_Click(object sender, EventArgs e) {
-            var rand = new Random();
-            tb3.Text = rand.Next(10,1001).ToString();
-        }
     }
 }
-

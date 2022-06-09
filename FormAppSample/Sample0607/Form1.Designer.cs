@@ -24,88 +24,71 @@ namespace Sample0607 {
         /// コード エディターで変更しないでください。
         /// </summary>
         private void InitializeComponent() {
-            this.tbnum2 = new System.Windows.Forms.TextBox();
-            this.tbnum1 = new System.Windows.Forms.TextBox();
-            this.tbans = new System.Windows.Forms.TextBox();
+            this.btRamdom = new System.Windows.Forms.Button();
+            this.tb1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbMod = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tb2 = new System.Windows.Forms.TextBox();
+            this.tb3 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // tbnum2
+            // btRamdom
             // 
-            this.tbnum2.Font = new System.Drawing.Font("MS UI Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbnum2.Location = new System.Drawing.Point(269, 45);
-            this.tbnum2.Name = "tbnum2";
-            this.tbnum2.Size = new System.Drawing.Size(100, 44);
-            this.tbnum2.TabIndex = 0;
+            this.btRamdom.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btRamdom.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btRamdom.Location = new System.Drawing.Point(253, 352);
+            this.btRamdom.Name = "btRamdom";
+            this.btRamdom.Size = new System.Drawing.Size(130, 46);
+            this.btRamdom.TabIndex = 0;
+            this.btRamdom.Text = "乱数取得";
+            this.btRamdom.UseVisualStyleBackColor = true;
+            this.btRamdom.Click += new System.EventHandler(this.btRamdom_Click);
             // 
-            // tbnum1
+            // tb1
             // 
-            this.tbnum1.Font = new System.Drawing.Font("MS UI Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbnum1.Location = new System.Drawing.Point(54, 45);
-            this.tbnum1.Name = "tbnum1";
-            this.tbnum1.Size = new System.Drawing.Size(100, 44);
-            this.tbnum1.TabIndex = 0;
-            // 
-            // tbans
-            // 
-            this.tbans.Font = new System.Drawing.Font("MS UI Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbans.Location = new System.Drawing.Point(469, 45);
-            this.tbans.Name = "tbans";
-            this.tbans.Size = new System.Drawing.Size(100, 44);
-            this.tbans.TabIndex = 0;
+            this.tb1.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.tb1.Location = new System.Drawing.Point(166, 93);
+            this.tb1.Name = "tb1";
+            this.tb1.Size = new System.Drawing.Size(100, 31);
+            this.tb1.TabIndex = 2;
+            this.tb1.Text = "10";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(208, 58);
+            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label1.Location = new System.Drawing.Point(45, 99);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 24);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "÷";
+            this.label1.Size = new System.Drawing.Size(73, 21);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "最小値";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.Location = new System.Drawing.Point(405, 58);
+            this.label2.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label2.Location = new System.Drawing.Point(45, 173);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 24);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "＝";
+            this.label2.Size = new System.Drawing.Size(73, 21);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "最大値";
             // 
-            // label3
+            // tb2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label3.Location = new System.Drawing.Point(586, 59);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 24);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "あまり";
+            this.tb2.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.tb2.Location = new System.Drawing.Point(166, 167);
+            this.tb2.Name = "tb2";
+            this.tb2.Size = new System.Drawing.Size(100, 31);
+            this.tb2.TabIndex = 5;
+            this.tb2.Text = "1000";
             // 
-            // tbMod
+            // tb3
             // 
-            this.tbMod.Font = new System.Drawing.Font("MS UI Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbMod.Location = new System.Drawing.Point(670, 45);
-            this.tbMod.Name = "tbMod";
-            this.tbMod.Size = new System.Drawing.Size(100, 44);
-            this.tbMod.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button1.Location = new System.Drawing.Point(469, 122);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 66);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "計算";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.tb3.Font = new System.Drawing.Font("MS UI Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.tb3.Location = new System.Drawing.Point(47, 324);
+            this.tb3.Name = "tb3";
+            this.tb3.Size = new System.Drawing.Size(166, 71);
+            this.tb3.TabIndex = 6;
             // 
             // Form1
             // 
@@ -113,16 +96,14 @@ namespace Sample0607 {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.tb3);
+            this.Controls.Add(this.tb2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.tbMod);
-            this.Controls.Add(this.tbans);
-            this.Controls.Add(this.tbnum1);
-            this.Controls.Add(this.tbnum2);
+            this.Controls.Add(this.tb1);
+            this.Controls.Add(this.btRamdom);
             this.Name = "Form1";
-            this.Text = "計算アプリ";
+            this.Text = "乱数アプリ";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,14 +111,12 @@ namespace Sample0607 {
 
         #endregion
 
-        private System.Windows.Forms.TextBox tbnum2;
-        private System.Windows.Forms.TextBox tbnum1;
-        private System.Windows.Forms.TextBox tbans;
+        private System.Windows.Forms.Button btRamdom;
+        private System.Windows.Forms.TextBox tb1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbMod;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox tb2;
+        private System.Windows.Forms.TextBox tb3;
     }
 }
 
