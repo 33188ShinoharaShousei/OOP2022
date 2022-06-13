@@ -44,7 +44,7 @@ namespace AddressBook {
             this.btPictureClear = new System.Windows.Forms.Button();
             this.ofdFileOpenDialog = new System.Windows.Forms.OpenFileDialog();
             this.button1 = new System.Windows.Forms.Button();
-            this.btdelete = new System.Windows.Forms.Button();
+            this.btDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.SuspendLayout();
@@ -239,16 +239,16 @@ namespace AddressBook {
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btAddPerson_Click);
             // 
-            // btdelete
+            // btDelete
             // 
-            this.btdelete.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btdelete.Location = new System.Drawing.Point(730, 248);
-            this.btdelete.Name = "btdelete";
-            this.btdelete.Size = new System.Drawing.Size(38, 47);
-            this.btdelete.TabIndex = 4;
-            this.btdelete.Text = "削除";
-            this.btdelete.UseVisualStyleBackColor = true;
-            this.btdelete.Click += new System.EventHandler(this.btdelete_Click);
+            this.btDelete.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btDelete.Location = new System.Drawing.Point(730, 248);
+            this.btDelete.Name = "btDelete";
+            this.btDelete.Size = new System.Drawing.Size(38, 47);
+            this.btDelete.TabIndex = 4;
+            this.btDelete.Text = "削除";
+            this.btDelete.UseVisualStyleBackColor = true;
+            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
             // 
             // Form1
             // 
@@ -259,7 +259,7 @@ namespace AddressBook {
             this.Controls.Add(this.pbPictureOpen);
             this.Controls.Add(this.pbPicture);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.btdelete);
+            this.Controls.Add(this.btDelete);
             this.Controls.Add(this.btUpdate);
             this.Controls.Add(this.cbOther);
             this.Controls.Add(this.cbWork);
@@ -277,6 +277,7 @@ namespace AddressBook {
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "住所録アプリ";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();
             this.ResumeLayout(false);
@@ -306,7 +307,7 @@ namespace AddressBook {
         private System.Windows.Forms.Button btPictureClear;
         private System.Windows.Forms.OpenFileDialog ofdFileOpenDialog;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btdelete;
+        private System.Windows.Forms.Button btDelete;
     }
 }
 

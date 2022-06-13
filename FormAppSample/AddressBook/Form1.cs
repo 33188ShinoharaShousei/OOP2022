@@ -27,7 +27,7 @@ namespace AddressBook {
         }
 
         private void btAddPerson_Click(object sender, EventArgs e) {
-            
+
             Person newPerson = new Person {
                 Name = tbName.Text,
                 MailAddress = tbMailAddress.Text,
@@ -112,7 +112,7 @@ namespace AddressBook {
             listPerson.Insert(index,newPerson);*/
 
             listPerson[dgvPersons.CurrentRow.Index].Name = tbName.Text;
-            listPerson[dgvPersons.CurrentRow.Index].MailAddress= tbMailAddress.Text;
+            listPerson[dgvPersons.CurrentRow.Index].MailAddress = tbMailAddress.Text;
             listPerson[dgvPersons.CurrentRow.Index].Address = tbAddress.Text;
             listPerson[dgvPersons.CurrentRow.Index].Company = tbCompany.Text;
             listPerson[dgvPersons.CurrentRow.Index].Picture = pbPicture.Image;
@@ -125,9 +125,14 @@ namespace AddressBook {
             cbFamily.Checked = cbFriend.Checked = cbWork.Checked = cbOther.Checked = false;
         }
 
-        private void btdelete_Click(object sender, EventArgs e) {
+        private void btDelete_Click(object sender, EventArgs e) {
+            if (dgvPersons.CurrentRow == null) return;
             int index = dgvPersons.CurrentRow.Index;
             listPerson.RemoveAt(index);
+        }
+
+        private void Form1_Load(object sender, EventArgs e) {
+            btDelete.Enabled = false;
         }
     }
 }
