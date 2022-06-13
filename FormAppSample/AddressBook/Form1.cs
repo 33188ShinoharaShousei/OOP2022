@@ -27,6 +27,7 @@ namespace AddressBook {
         }
 
         private void btAddPerson_Click(object sender, EventArgs e) {
+            
             Person newPerson = new Person {
                 Name = tbName.Text,
                 MailAddress = tbMailAddress.Text,
@@ -34,12 +35,8 @@ namespace AddressBook {
                 Company = tbCompany.Text,
                 Picture = pbPicture.Image,
                 listGroup = GetCheckBoxGroup(),
-
             };
-
             listPerson.Add(newPerson);
-
-
         }
 
         //チェックボックスにセットされている値をリストとして取り出す
@@ -69,36 +66,68 @@ namespace AddressBook {
 
         //データグリッドビューをクリックした時のイベントハンドラ
         private void dgvPersons_Click(object sender, EventArgs e) {
-            foreach (DataGridViewRow dr in dgvPersons.SelectedRows) {
-                tbName.Text = listPerson[dr.Index].Name;
-                tbMailAddress.Text = listPerson[dr.Index].MailAddress;
-                tbAddress.Text = listPerson[dr.Index].Address;
-                tbCompany.Text = listPerson[dr.Index].Company;
-                pbPicture.Image = listPerson[dr.Index].Picture;
+            if (dgvPersons.CurrentRow == null) return;
 
+            int index = dgvPersons.CurrentRow.Index;
+            tbName.Text = listPerson[index].Name;
+            tbMailAddress.Text = listPerson[index].MailAddress;
+            tbAddress.Text = listPerson[index].Address;
+            tbCompany.Text = listPerson[index].Company;
+            pbPicture.Image = listPerson[index].Picture;
 
+            groupCheckBoxAllClear();
 
-
-                foreach (var group in listPerson[dr.Index].listGroup) {
-                    switch (group) {
-                        case Person.GroupType.家族:
-                            cbFamily.CheckState = CheckState.Checked;
-                            break;
-                        case Person.GroupType.友人:
-                            cbFriend.Checked = true;
-                            break;
-                        case Person.GroupType.仕事:
-                            cbWork.Checked = true;
-                            break;
-                        case Person.GroupType.その他:
-                            cbOther.Checked = true;
-                            break;
-                        default:
-                            break;
-                    }
-
+            foreach (var group in listPerson[index].listGroup) {
+                switch (group) {
+                    case Person.GroupType.家族:
+                        cbFamily.Checked = true;
+                        break;
+                    case Person.GroupType.友人:
+                        cbFriend.Checked = true;
+                        break;
+                    case Person.GroupType.仕事:
+                        cbWork.Checked = true;
+                        break;
+                    case Person.GroupType.その他:
+                        cbOther.Checked = true;
+                        break;
+                    default:
+                        break;
                 }
             }
+        }
+
+        private void btUpdate_Click(object sender, EventArgs e) {
+
+            /*int index = dgvPersons.CurrentRow.Index;//選択しているところ
+            listPerson.RemoveAt(index);
+            Person newPerson = new Person {
+                Name = tbName.Text,
+                MailAddress = tbMailAddress.Text,
+                Address = tbAddress.Text,
+                Company = tbCompany.Text,
+                Picture = pbPicture.Image,
+                listGroup = GetCheckBoxGroup(),
+            };
+            listPerson.Insert(index,newPerson);*/
+
+            listPerson[dgvPersons.CurrentRow.Index].Name = tbName.Text;
+            listPerson[dgvPersons.CurrentRow.Index].MailAddress= tbMailAddress.Text;
+            listPerson[dgvPersons.CurrentRow.Index].Address = tbAddress.Text;
+            listPerson[dgvPersons.CurrentRow.Index].Company = tbCompany.Text;
+            listPerson[dgvPersons.CurrentRow.Index].Picture = pbPicture.Image;
+            listPerson[dgvPersons.CurrentRow.Index].listGroup = GetCheckBoxGroup();
+            dgvPersons.Refresh();//データグリッドビュー更新
+        }
+
+        //グループのチェックボックスをオールクリア
+        private void groupCheckBoxAllClear() {
+            cbFamily.Checked = cbFriend.Checked = cbWork.Checked = cbOther.Checked = false;
+        }
+
+        private void btdelete_Click(object sender, EventArgs e) {
+            int index = dgvPersons.CurrentRow.Index;
+            listPerson.RemoveAt(index);
         }
     }
 }
