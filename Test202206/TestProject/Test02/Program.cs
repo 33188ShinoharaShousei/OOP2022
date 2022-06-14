@@ -64,7 +64,7 @@ namespace Test02 {
         //　　　　出力結果【12 14 20 40 35 31 17 48】
         private static void Exercise04(List<int> numbers) {
             foreach (var n in numbers.Where(n => n <= 50)) {
-                Console.WriteLine(n);
+                Console.Write(n + " ");
             }
         }
     }
