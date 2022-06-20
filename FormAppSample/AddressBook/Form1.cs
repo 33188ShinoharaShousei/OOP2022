@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -48,12 +50,16 @@ namespace AddressBook {
                 btDelete.Enabled = true;
                 btUpdate.Enabled = true;
             }
-            //コンボボックスに会社名を登録する（重複なし）
-            if (!cbCompany.Items.Contains(cbCompany.Text)) {
+            setCbCompany(cbCompany.Text);
+
+        }
+
+        //コンボボックスに会社名を登録する（重複なし）
+        private void setCbCompany(string company) {
+            
+            if (!cbCompany.Items.Contains(company)) {
                 cbCompany.Items.Add(cbCompany.Text);
             }
-            
-
         }
 
         //チェックボックスにセットされている値をリストとして取り出す
@@ -115,7 +121,7 @@ namespace AddressBook {
         }
 
         private void btUpdate_Click(object sender, EventArgs e) {
-            
+
             /*int index = dgvPersons.CurrentRow.Index;//選択しているところ
             listPerson.RemoveAt(index);
             Person newPerson = new Person {
@@ -144,10 +150,10 @@ namespace AddressBook {
 
         private void btDelete_Click(object sender, EventArgs e) {
 
-            if (listPerson.Count() == 0) 
+            if (listPerson.Count() == 0)
                 btDelete.Enabled = false;
-                btUpdate.Enabled = false;
-            
+            btUpdate.Enabled = false;
+
 
             if (dgvPersons.CurrentRow == null) return;
             int index = dgvPersons.CurrentRow.Index;
@@ -157,7 +163,46 @@ namespace AddressBook {
         private void Form1_Load(object sender, EventArgs e) {
             btDelete.Enabled = false;
             btUpdate.Enabled = false;
-            
+
+        }
+
+        private void btSave_Click(object sender, EventArgs e) {
+            if (sfdSaveDialog.ShowDialog() == DialogResult.OK) {
+                try {
+                    //バイナリ形式でシリアル化
+                    var bf = new BinaryFormatter();
+
+                    using (FileStream fs = File.Open(sfdSaveDialog.FileName, FileMode.Create)) {
+                        bf.Serialize(fs, listPerson);
+                    }
+                }
+                catch (Exception ex) {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void btOpen_Click(object sender, EventArgs e) {
+            if (ofdFileOpenDialog.ShowDialog() == DialogResult.OK) {
+                try {
+                    //バイナリ形式で逆シリアル化
+                    var bf = new BinaryFormatter();
+
+                    using (FileStream fs = File.Open(ofdFileOpenDialog.FileName, FileMode.Open)) {
+
+                        //逆シリアル化して読み込む
+                        listPerson = (BindingList<Person>)bf.Deserialize(fs);
+                        dgvPersons.DataSource = null;
+                        dgvPersons.DataSource = listPerson;
+                    }
+                }
+                catch (Exception ex) {
+                    MessageBox.Show(ex.Message);
+                }
+                foreach (var item in listPerson) {
+                    setCbCompany(item.Company);//存在する会社を登録
+                }
+            }
         }
     }
 }
