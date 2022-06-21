@@ -46,19 +46,17 @@ namespace AddressBook {
             };
             listPerson.Add(newPerson);
 
-            if (listPerson.Count() > 0) {
-                btDelete.Enabled = true;
-                btUpdate.Enabled = true;
-            }
+            EnabledCheck();
+
             setCbCompany(cbCompany.Text);
 
         }
 
         //コンボボックスに会社名を登録する（重複なし）
         private void setCbCompany(string company) {
-            
+
             if (!cbCompany.Items.Contains(company)) {
-                cbCompany.Items.Add(cbCompany.Text);
+                cbCompany.Items.Add(company);
             }
         }
 
@@ -122,18 +120,6 @@ namespace AddressBook {
 
         private void btUpdate_Click(object sender, EventArgs e) {
 
-            /*int index = dgvPersons.CurrentRow.Index;//選択しているところ
-            listPerson.RemoveAt(index);
-            Person newPerson = new Person {
-                Name = tbName.Text,
-                MailAddress = tbMailAddress.Text,
-                Address = tbAddress.Text,
-                Company = tbCompany.Text,
-                Picture = pbPicture.Image,
-                listGroup = GetCheckBoxGroup(),
-            };
-            listPerson.Insert(index,newPerson);*/
-
             listPerson[dgvPersons.CurrentRow.Index].Name = tbName.Text;
             listPerson[dgvPersons.CurrentRow.Index].MailAddress = tbMailAddress.Text;
             listPerson[dgvPersons.CurrentRow.Index].Address = tbAddress.Text;
@@ -150,9 +136,7 @@ namespace AddressBook {
 
         private void btDelete_Click(object sender, EventArgs e) {
 
-            if (listPerson.Count() == 0)
-                btDelete.Enabled = false;
-            btUpdate.Enabled = false;
+            EnabledCheck();
 
 
             if (dgvPersons.CurrentRow == null) return;
@@ -160,10 +144,14 @@ namespace AddressBook {
             listPerson.RemoveAt(index);
         }
 
-        private void Form1_Load(object sender, EventArgs e) {
-            btDelete.Enabled = false;
-            btUpdate.Enabled = false;
+        private void EnabledCheck() {
 
+            btUpdate.Enabled = btDelete.Enabled = listPerson.Count() > 0 ? true : false;
+        }
+
+        private void Form1_Load(object sender, EventArgs e) {
+
+            EnabledCheck();
         }
 
         private void btSave_Click(object sender, EventArgs e) {
@@ -183,6 +171,7 @@ namespace AddressBook {
         }
 
         private void btOpen_Click(object sender, EventArgs e) {
+            
             if (ofdFileOpenDialog.ShowDialog() == DialogResult.OK) {
                 try {
                     //バイナリ形式で逆シリアル化
@@ -199,10 +188,12 @@ namespace AddressBook {
                 catch (Exception ex) {
                     MessageBox.Show(ex.Message);
                 }
+                cbCompany.Items.Clear();
                 foreach (var item in listPerson) {
                     setCbCompany(item.Company);//存在する会社を登録
                 }
             }
+            EnabledCheck();
         }
     }
 }
