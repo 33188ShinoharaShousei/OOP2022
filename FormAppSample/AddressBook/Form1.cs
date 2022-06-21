@@ -120,6 +120,7 @@ namespace AddressBook {
                         break;
                 }
             }
+
             foreach (var group in listPerson[index].KindNumber) {
                 switch (group) {
                     case Person.KindNumberType.自宅:
