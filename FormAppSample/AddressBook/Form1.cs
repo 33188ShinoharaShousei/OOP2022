@@ -41,8 +41,12 @@ namespace AddressBook {
                 MailAddress = tbMailAddress.Text,
                 Address = tbAddress.Text,
                 Company = cbCompany.Text,
+                TelNumber = tbNumberBox.Text,
+                Registration = DateTime.Now,
                 Picture = pbPicture.Image,
                 listGroup = GetCheckBoxGroup(),
+                KindNumber = GetKindNumberTypes(),
+
             };
             listPerson.Add(newPerson);
 
@@ -65,19 +69,17 @@ namespace AddressBook {
             var listGroup = new List<Person.GroupType>();
             if (cbFamily.Checked) {
                 listGroup.Add(Person.GroupType.家族);
-
-                if (cbFriend.Checked) {
-                    listGroup.Add(Person.GroupType.友人);
-
-                    if (cbWork.Checked) {
-                        listGroup.Add(Person.GroupType.仕事);
-
-                        if (cbOther.Checked) {
-                            listGroup.Add(Person.GroupType.その他);
-                        }
-                    }
-                }
             }
+            if (cbFriend.Checked) {
+                listGroup.Add(Person.GroupType.友人);
+            }
+            if (cbWork.Checked) {
+                listGroup.Add(Person.GroupType.仕事);
+            }
+            if (cbOther.Checked) {
+                listGroup.Add(Person.GroupType.その他);
+            }
+
             return listGroup;
         }
 
@@ -94,6 +96,8 @@ namespace AddressBook {
             tbMailAddress.Text = listPerson[index].MailAddress;
             tbAddress.Text = listPerson[index].Address;
             cbCompany.Text = listPerson[index].Company;
+            tbNumberBox.Text = listPerson[index].TelNumber;
+            DtpRegist.Value = listPerson[index].Registration;
             pbPicture.Image = listPerson[index].Picture;
 
             groupCheckBoxAllClear();
@@ -116,6 +120,18 @@ namespace AddressBook {
                         break;
                 }
             }
+            foreach (var group in listPerson[index].KindNumber) {
+                switch (group) {
+                    case Person.KindNumberType.自宅:
+                        rbHome.Checked = true;
+                        break;
+                    case Person.KindNumberType.携帯:
+                        rbMobile.Checked = true;
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
 
         private void btUpdate_Click(object sender, EventArgs e) {
@@ -124,6 +140,9 @@ namespace AddressBook {
             listPerson[dgvPersons.CurrentRow.Index].MailAddress = tbMailAddress.Text;
             listPerson[dgvPersons.CurrentRow.Index].Address = tbAddress.Text;
             listPerson[dgvPersons.CurrentRow.Index].Company = cbCompany.Text;
+            listPerson[dgvPersons.CurrentRow.Index].TelNumber = tbNumberBox.Text;
+            listPerson[dgvPersons.CurrentRow.Index].KindNumber = GetKindNumberTypes();
+            listPerson[dgvPersons.CurrentRow.Index].Registration = DateTime.Now;
             listPerson[dgvPersons.CurrentRow.Index].Picture = pbPicture.Image;
             listPerson[dgvPersons.CurrentRow.Index].listGroup = GetCheckBoxGroup();
             dgvPersons.Refresh();//データグリッドビュー更新
@@ -171,7 +190,7 @@ namespace AddressBook {
         }
 
         private void btOpen_Click(object sender, EventArgs e) {
-            
+
             if (ofdFileOpenDialog.ShowDialog() == DialogResult.OK) {
                 try {
                     //バイナリ形式で逆シリアル化
@@ -194,6 +213,25 @@ namespace AddressBook {
                 }
             }
             EnabledCheck();
+        }
+
+        private void label6_Click(object sender, EventArgs e) {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e) {
+
+        }
+
+        private List<Person.KindNumberType> GetKindNumberTypes() {
+            var kindNumber = new List<Person.KindNumberType>();
+            if (rbHome.Checked) {
+                kindNumber.Add(Person.KindNumberType.自宅);
+            }
+            if (rbMobile.Checked) {
+                kindNumber.Add(Person.KindNumberType.携帯);
+            }
+            return kindNumber;
         }
     }
 }
