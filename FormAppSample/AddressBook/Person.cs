@@ -11,31 +11,49 @@ namespace AddressBook {
 
         [System.ComponentModel.DisplayName("名前")]
         public string Name { get; set; }
+
         [System.ComponentModel.DisplayName("メールアドレス")]
         public string MailAddress { get; set; }
+
         [System.ComponentModel.DisplayName("住所")]
         public string Address { get; set; }
+
         [System.ComponentModel.DisplayName("会社")]
         public string Company { get; set; }
+
         [System.ComponentModel.DisplayName("グループ")]
         public string Group {
             get {
                 string groups = "";
-                foreach (GroupType group in listGroup) {
+                foreach (GroupType group in ListGroup) {
                     groups += "[" + group + "]";
                 }
                 return groups;
             }
         }
-        public List<GroupType> listGroup { get; set; }
+        public List<GroupType> ListGroup { get; set; }
+
         [System.ComponentModel.DisplayName("種別番号")]
+        public string Number {
+            get {
+                string numbers = "";
+                foreach (KindNumberType number in KindNumber) {
+                    numbers += "[" + number + "]";
+                }
+                return numbers;
+            }
+        }
         public List<KindNumberType> KindNumber { get; set; }
+
         [System.ComponentModel.DisplayName("電話番号")]
         public string TelNumber { get; set; }
+
         [System.ComponentModel.DisplayName("画像")]
         public Image Picture { get; set; }
+
         [System.ComponentModel.DisplayName("登録日")]
         public DateTime Registration { get; set; }
+
 
         public enum GroupType {
             家族,
@@ -43,9 +61,11 @@ namespace AddressBook {
             仕事,
             その他,
         }
+
         public enum KindNumberType {
             自宅,
             携帯,
+            その他,
         }
     }
 }

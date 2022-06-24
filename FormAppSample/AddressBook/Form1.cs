@@ -44,7 +44,7 @@ namespace AddressBook {
                 TelNumber = tbNumberBox.Text,
                 Registration = DateTime.Now,
                 Picture = pbPicture.Image,
-                listGroup = GetCheckBoxGroup(),
+                ListGroup = GetCheckBoxGroup(),
                 KindNumber = GetKindNumberTypes(),
 
             };
@@ -102,7 +102,7 @@ namespace AddressBook {
 
             groupCheckBoxAllClear();
 
-            foreach (var group in listPerson[index].listGroup) {
+            foreach (var group in listPerson[index].ListGroup) {
                 switch (group) {
                     case Person.GroupType.家族:
                         cbFamily.Checked = true;
@@ -129,6 +129,8 @@ namespace AddressBook {
                     case Person.KindNumberType.携帯:
                         rbMobile.Checked = true;
                         break;
+                    case Person.KindNumberType.その他:
+                        break;
                     default:
                         break;
                 }
@@ -145,7 +147,7 @@ namespace AddressBook {
             listPerson[dgvPersons.CurrentRow.Index].KindNumber = GetKindNumberTypes();
             listPerson[dgvPersons.CurrentRow.Index].Registration = DateTime.Now;
             listPerson[dgvPersons.CurrentRow.Index].Picture = pbPicture.Image;
-            listPerson[dgvPersons.CurrentRow.Index].listGroup = GetCheckBoxGroup();
+            listPerson[dgvPersons.CurrentRow.Index].ListGroup = GetCheckBoxGroup();
             dgvPersons.Refresh();//データグリッドビュー更新
         }
 
@@ -155,13 +157,22 @@ namespace AddressBook {
         }
 
         private void btDelete_Click(object sender, EventArgs e) {
-
             EnabledCheck();
-
 
             if (dgvPersons.CurrentRow == null) return;
             int index = dgvPersons.CurrentRow.Index;
             listPerson.RemoveAt(index);
+            
+        }
+        
+        private void tbName_TextChanged(object sender, EventArgs e) {
+            if (tbName.Text.Length == 0) {
+                btAddPerson.Enabled = false;
+                btUpdate.Enabled = false;
+            }
+            if (tbName.Text.Length != 0) {
+                btAddPerson.Enabled = true;
+            }
         }
 
         private void EnabledCheck() {
@@ -170,7 +181,6 @@ namespace AddressBook {
         }
 
         private void Form1_Load(object sender, EventArgs e) {
-
             EnabledCheck();
         }
 
@@ -197,7 +207,7 @@ namespace AddressBook {
                     //バイナリ形式で逆シリアル化
                     var bf = new BinaryFormatter();
 
-                    using (FileStream fs = File.Open(ofdFileOpenDialog.FileName, FileMode.Open)) {
+                    using (FileStream fs = File.Open(ofdFileOpenDialog.FileName, FileMode.Open,FileAccess.Read)) {
 
                         //逆シリアル化して読み込む
                         listPerson = (BindingList<Person>)bf.Deserialize(fs);
@@ -209,21 +219,15 @@ namespace AddressBook {
                     MessageBox.Show(ex.Message);
                 }
                 cbCompany.Items.Clear();
-                foreach (var item in listPerson) {
-                    setCbCompany(item.Company);//存在する会社を登録
+                foreach (var item in listPerson.Select(p => p.Company)) {
+                    setCbCompany(item);//存在する会社を登録
                 }
             }
             EnabledCheck();
         }
 
-        private void label6_Click(object sender, EventArgs e) {
 
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e) {
-
-        }
-
+        //チェックボックスにセットされている値をリストとして取り出す
         private List<Person.KindNumberType> GetKindNumberTypes() {
             var kindNumber = new List<Person.KindNumberType>();
             if (rbHome.Checked) {
