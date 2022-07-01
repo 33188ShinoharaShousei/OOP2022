@@ -12,7 +12,7 @@ namespace XmlSample {
 
             using (var wc = new WebClient()) {
 
-                var stream = new WebClient().OpenRead("https://news.yahoo.co.jp/rss/media/tokyomxv/all.xml");
+                var stream = new WebClient().OpenRead("");
 
                 var xdoc = XDocument.Load(stream);
                 var xNews = xdoc.Root.Descendants("item").Select(x=>x.Element("title"));
