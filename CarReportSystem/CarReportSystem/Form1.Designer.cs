@@ -61,6 +61,8 @@ namespace CarReportSystem {
             this.終了ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.終了ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCar)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -138,7 +140,7 @@ namespace CarReportSystem {
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(653, 19);
+            this.label9.Location = new System.Drawing.Point(653, 31);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(35, 12);
             this.label9.TabIndex = 3;
@@ -258,7 +260,7 @@ namespace CarReportSystem {
             // 
             // piDelete
             // 
-            this.piDelete.Location = new System.Drawing.Point(776, 13);
+            this.piDelete.Location = new System.Drawing.Point(776, 25);
             this.piDelete.Name = "piDelete";
             this.piDelete.Size = new System.Drawing.Size(78, 25);
             this.piDelete.TabIndex = 6;
@@ -287,7 +289,7 @@ namespace CarReportSystem {
             // 
             // piopen
             // 
-            this.piopen.Location = new System.Drawing.Point(694, 13);
+            this.piopen.Location = new System.Drawing.Point(694, 25);
             this.piopen.Name = "piopen";
             this.piopen.Size = new System.Drawing.Size(76, 26);
             this.piopen.TabIndex = 6;
@@ -302,6 +304,7 @@ namespace CarReportSystem {
             this.btend.TabIndex = 6;
             this.btend.Text = "終了";
             this.btend.UseVisualStyleBackColor = true;
+            this.btend.Click += new System.EventHandler(this.btend_Click);
             // 
             // dgvCarReport
             // 
@@ -318,9 +321,9 @@ namespace CarReportSystem {
             // 
             // pbCar
             // 
-            this.pbCar.Location = new System.Drawing.Point(668, 44);
+            this.pbCar.Location = new System.Drawing.Point(668, 57);
             this.pbCar.Name = "pbCar";
-            this.pbCar.Size = new System.Drawing.Size(267, 247);
+            this.pbCar.Size = new System.Drawing.Size(267, 234);
             this.pbCar.TabIndex = 9;
             this.pbCar.TabStop = false;
             // 
@@ -354,42 +357,57 @@ namespace CarReportSystem {
             // 開くToolStripMenuItem
             // 
             this.開くToolStripMenuItem.Name = "開くToolStripMenuItem";
-            this.開くToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.開くToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.開くToolStripMenuItem.Text = "開く...";
+            this.開くToolStripMenuItem.Click += new System.EventHandler(this.Open_Click);
             // 
             // 保存ToolStripMenuItem
             // 
             this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.保存ToolStripMenuItem.Text = "保存...";
+            this.保存ToolStripMenuItem.Click += new System.EventHandler(this.btSave_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(116, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // 終了ToolStripMenuItem
             // 
             this.終了ToolStripMenuItem.Name = "終了ToolStripMenuItem";
-            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.終了ToolStripMenuItem.Text = "色設定...";
+            this.終了ToolStripMenuItem.Click += new System.EventHandler(this.ColorSetting_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(116, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // 終了ToolStripMenuItem1
             // 
             this.終了ToolStripMenuItem1.Name = "終了ToolStripMenuItem1";
-            this.終了ToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
+            this.終了ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.終了ToolStripMenuItem1.Text = "終了";
+            this.終了ToolStripMenuItem1.Click += new System.EventHandler(this.btend_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(860, 26);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(31, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "★";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.ColorSetting_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(987, 531);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pbCar);
             this.Controls.Add(this.dgvCarReport);
             this.Controls.Add(this.btsave);
@@ -421,6 +439,7 @@ namespace CarReportSystem {
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "試験レポート管理システム";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCar)).EndInit();
@@ -470,6 +489,8 @@ namespace CarReportSystem {
         private System.Windows.Forms.ToolStripMenuItem 終了ToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem 終了ToolStripMenuItem1;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

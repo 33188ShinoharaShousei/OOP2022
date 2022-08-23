@@ -9,10 +9,13 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace CarReportSystem {
+    
     public partial class Form1 : Form {
-
+        Settings settings = new Settings();
         BindingList<CarReport> listCarReport = new BindingList<CarReport>();
 
         public Form1() {
@@ -154,7 +157,7 @@ namespace CarReportSystem {
             listCarReport.RemoveAt(index);
 
         }
-        
+
         private void btSave_Click(object sender, EventArgs e) {
             if (sfdSaveDialog.ShowDialog() == DialogResult.OK) {
                 try {
@@ -205,9 +208,33 @@ namespace CarReportSystem {
             btcorrect.Enabled = btDelete.Enabled = listCarReport.Count() > 0 ? true : false;
         }
 
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e) {
+            using (var color = XmlWriter.Create("settings.xml")) {
+                var serializer = new XmlSerializer(settings.GetType());
+                serializer.Serialize(color, settings);
+            }
+        }
         private void Form1_Load(object sender, EventArgs e) {
+            using (var reader = XmlReader.Create("settings.xml")) {
+                var serializer = new XmlSerializer(typeof(Settings));
+                settings = serializer.Deserialize(reader) as Settings;
+                BackColor = Color.FromArgb(settings.MainFormColor);
+            }
             EnabledCheck();
         }
+
+        private void ColorSetting_Click(object sender, EventArgs e) {
+            if (colorDialog1.ShowDialog() == DialogResult.OK) {
+                BackColor = colorDialog1.Color;
+                settings.MainFormColor = colorDialog1.Color.ToArgb();
+            }
+        }
+
+        private void btend_Click(object sender, EventArgs e) {
+            Application.Exit();
+        }
+
     }
 }
 
