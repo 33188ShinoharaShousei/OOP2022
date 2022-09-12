@@ -238,6 +238,8 @@ namespace AddressBook {
             }
             return kindNumber;
         }
+
+        
     }
 }
 
