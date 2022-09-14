@@ -130,6 +130,8 @@ namespace AddressBook {
         private void button1_Click(object sender, EventArgs e) {
             // TODO: このコード行はデータを 'infosys202231DataSet.AddressTable' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
             this.addressTableTableAdapter.Fill(this.infosys202231DataSet.AddressTable);
+
+            tbNameSearch.Text = string.Empty;
         }
 
         private void バージョン情報ToolStripMenuItem_Click(object sender, EventArgs e) {
