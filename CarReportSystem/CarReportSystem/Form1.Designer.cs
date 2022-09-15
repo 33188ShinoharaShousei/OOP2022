@@ -62,6 +62,14 @@ namespace CarReportSystem {
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.button1 = new System.Windows.Forms.Button();
             this.carReportDBDataGridView = new System.Windows.Forms.DataGridView();
+            this.carReportDBBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.infosys202231DataSet = new CarReportSystem.infosys202231DataSet();
+            this.carReportDBTableAdapter = new CarReportSystem.infosys202231DataSetTableAdapters.CarReportDBTableAdapter();
+            this.tableAdapterManager = new CarReportSystem.infosys202231DataSetTableAdapters.TableAdapterManager();
+            this.carReportDBTableAdapter1 = new CarReportSystem.infosys202231DataSetTableAdapters.CarReportDBTableAdapter();
+            this.btClean = new System.Windows.Forms.Button();
+            this.btSearch = new System.Windows.Forms.Button();
+            this.tbNameSearch = new System.Windows.Forms.TextBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,11 +77,6 @@ namespace CarReportSystem {
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.carReportDBBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.infosys202231DataSet = new CarReportSystem.infosys202231DataSet();
-            this.carReportDBTableAdapter = new CarReportSystem.infosys202231DataSetTableAdapters.CarReportDBTableAdapter();
-            this.tableAdapterManager = new CarReportSystem.infosys202231DataSetTableAdapters.TableAdapterManager();
-            this.carReportDBTableAdapter1 = new CarReportSystem.infosys202231DataSetTableAdapters.CarReportDBTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.pbCar)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.carReportDBDataGridView)).BeginInit();
@@ -144,7 +147,7 @@ namespace CarReportSystem {
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(2, 309);
+            this.label8.Location = new System.Drawing.Point(2, 322);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(59, 12);
             this.label8.TabIndex = 3;
@@ -153,7 +156,7 @@ namespace CarReportSystem {
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(653, 31);
+            this.label9.Location = new System.Drawing.Point(626, 32);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(35, 12);
             this.label9.TabIndex = 3;
@@ -253,7 +256,7 @@ namespace CarReportSystem {
             // 
             // piDelete
             // 
-            this.piDelete.Location = new System.Drawing.Point(776, 25);
+            this.piDelete.Location = new System.Drawing.Point(749, 24);
             this.piDelete.Name = "piDelete";
             this.piDelete.Size = new System.Drawing.Size(78, 25);
             this.piDelete.TabIndex = 6;
@@ -283,7 +286,7 @@ namespace CarReportSystem {
             // 
             // piopen
             // 
-            this.piopen.Location = new System.Drawing.Point(694, 25);
+            this.piopen.Location = new System.Drawing.Point(667, 24);
             this.piopen.Name = "piopen";
             this.piopen.Size = new System.Drawing.Size(76, 26);
             this.piopen.TabIndex = 6;
@@ -304,7 +307,7 @@ namespace CarReportSystem {
             // pbCar
             // 
             this.pbCar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbCar.Location = new System.Drawing.Point(668, 57);
+            this.pbCar.Location = new System.Drawing.Point(646, 55);
             this.pbCar.Name = "pbCar";
             this.pbCar.Size = new System.Drawing.Size(267, 234);
             this.pbCar.TabIndex = 9;
@@ -340,44 +343,44 @@ namespace CarReportSystem {
             // 接続ToolStripMenuItem
             // 
             this.接続ToolStripMenuItem.Name = "接続ToolStripMenuItem";
-            this.接続ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.接続ToolStripMenuItem.Text = "接続";
+            this.接続ToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.接続ToolStripMenuItem.Text = "データベース接続";
             this.接続ToolStripMenuItem.Click += new System.EventHandler(this.接続ToolStripMenuItem_Click);
             // 
             // 保存ToolStripMenuItem
             // 
             this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.保存ToolStripMenuItem.Text = "保存...";
             this.保存ToolStripMenuItem.Click += new System.EventHandler(this.btUpdate_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(148, 6);
             // 
             // 終了ToolStripMenuItem
             // 
             this.終了ToolStripMenuItem.Name = "終了ToolStripMenuItem";
-            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.終了ToolStripMenuItem.Text = "色設定...";
             this.終了ToolStripMenuItem.Click += new System.EventHandler(this.ColorSetting_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(148, 6);
             // 
             // 終了ToolStripMenuItem1
             // 
             this.終了ToolStripMenuItem1.Name = "終了ToolStripMenuItem1";
-            this.終了ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.終了ToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
             this.終了ToolStripMenuItem1.Text = "終了";
             this.終了ToolStripMenuItem1.Click += new System.EventHandler(this.btend_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(860, 26);
+            this.button1.Location = new System.Drawing.Point(842, 26);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(31, 23);
             this.button1.TabIndex = 11;
@@ -402,59 +405,16 @@ namespace CarReportSystem {
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewImageColumn1});
             this.carReportDBDataGridView.DataSource = this.carReportDBBindingSource;
-            this.carReportDBDataGridView.Location = new System.Drawing.Point(96, 311);
+            this.carReportDBDataGridView.Location = new System.Drawing.Point(173, 311);
             this.carReportDBDataGridView.MultiSelect = false;
             this.carReportDBDataGridView.Name = "carReportDBDataGridView";
             this.carReportDBDataGridView.ReadOnly = true;
             this.carReportDBDataGridView.RowTemplate.Height = 21;
             this.carReportDBDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.carReportDBDataGridView.Size = new System.Drawing.Size(808, 220);
+            this.carReportDBDataGridView.Size = new System.Drawing.Size(740, 220);
             this.carReportDBDataGridView.TabIndex = 29;
             this.carReportDBDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.carReportDBDataGridView_DataError);
             this.carReportDBDataGridView.Click += new System.EventHandler(this.carReportDBDataGridView_Click);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Date";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Date";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Author";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Author";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Maker";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Maker";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "CarName";
-            this.dataGridViewTextBoxColumn5.HeaderText = "CarName";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Report";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Report";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.DataPropertyName = "Image";
-            this.dataGridViewImageColumn1.HeaderText = "Image";
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             // 
             // carReportDBBindingSource
             // 
@@ -480,11 +440,92 @@ namespace CarReportSystem {
             // 
             this.carReportDBTableAdapter1.ClearBeforeFill = true;
             // 
+            // btClean
+            // 
+            this.btClean.Location = new System.Drawing.Point(92, 409);
+            this.btClean.Name = "btClean";
+            this.btClean.Size = new System.Drawing.Size(75, 23);
+            this.btClean.TabIndex = 30;
+            this.btClean.Text = "クリア";
+            this.btClean.UseVisualStyleBackColor = true;
+            this.btClean.Click += new System.EventHandler(this.btClean_Click);
+            // 
+            // btSearch
+            // 
+            this.btSearch.Location = new System.Drawing.Point(4, 409);
+            this.btSearch.Name = "btSearch";
+            this.btSearch.Size = new System.Drawing.Size(75, 23);
+            this.btSearch.TabIndex = 31;
+            this.btSearch.Text = "検索";
+            this.btSearch.UseVisualStyleBackColor = true;
+            this.btSearch.Click += new System.EventHandler(this.btSearch_Click);
+            // 
+            // tbNameSearch
+            // 
+            this.tbNameSearch.Location = new System.Drawing.Point(25, 369);
+            this.tbNameSearch.Multiline = true;
+            this.tbNameSearch.Name = "tbNameSearch";
+            this.tbNameSearch.Size = new System.Drawing.Size(126, 31);
+            this.tbNameSearch.TabIndex = 32;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Date";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Date";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Author";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Author";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Maker";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Maker";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "CarName";
+            this.dataGridViewTextBoxColumn5.HeaderText = "CarName";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Report";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Report";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.DataPropertyName = "Image";
+            this.dataGridViewImageColumn1.HeaderText = "Image";
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(995, 551);
+            this.Controls.Add(this.tbNameSearch);
+            this.Controls.Add(this.btSearch);
+            this.Controls.Add(this.btClean);
             this.Controls.Add(this.carReportDBDataGridView);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pbCar);
@@ -515,6 +556,7 @@ namespace CarReportSystem {
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "試験レポート管理システム";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbCar)).EndInit();
             this.menuStrip1.ResumeLayout(false);
@@ -569,6 +611,11 @@ namespace CarReportSystem {
         private infosys202231DataSetTableAdapters.CarReportDBTableAdapter carReportDBTableAdapter;
         private infosys202231DataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView carReportDBDataGridView;
+        private System.Windows.Forms.ToolStripMenuItem 接続ToolStripMenuItem;
+        private infosys202231DataSetTableAdapters.CarReportDBTableAdapter carReportDBTableAdapter1;
+        private System.Windows.Forms.Button btClean;
+        private System.Windows.Forms.Button btSearch;
+        private System.Windows.Forms.TextBox tbNameSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -576,8 +623,6 @@ namespace CarReportSystem {
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.ToolStripMenuItem 接続ToolStripMenuItem;
-        private infosys202231DataSetTableAdapters.CarReportDBTableAdapter carReportDBTableAdapter1;
     }
 }
 
