@@ -39,32 +39,32 @@ namespace Chapter15 {
             }
 
             Console.WriteLine();
-            var groups = Library.Books
+            //var groups = Library.Books
+            //    .Where(b => years.Contains(b.PublishedYear))
+            //    .GroupBy(b => b.PublishedYear)
+            //    .OrderBy(g => g.Key);
+            var selected = Library.Books
                 .Where(b => years.Contains(b.PublishedYear))
-                .GroupBy(b => b.PublishedYear)
-                .OrderBy(g => g.Key);
+                .OrderByDescending(b => b.PublishedYear)
+                .ThenBy(b => b.CategoryId)
+                .Join(Library.Categories, book => book.CategoryId, category => category.Id,
+                         (book, category) => new {
+                             Title = book.Title,
+                             Category = category.Name,
+                             PublishedYear = book.PublishedYear,
+                             Price = book.Price
+                         }
+            );
 
-            foreach (var g in groups) {
-                Console.WriteLine($"{g.Key}年");
-                foreach (var book in g) {
-                    var category = Library.Categories.Where(b => b.Id == book.CategoryId).First();
-                    Console.WriteLine($"タイトル：{book.Title},価格：{book.Price},カテゴリ{category.Name}");
-                }
+            foreach (var book in selected
+                .OrderByDescending(x=>x.PublishedYear)
+                .ThenBy(x=>x.Category)) 
+                
+            {                     
+                Console.WriteLine($"{book.PublishedYear},{book.Title},{book.Category},{book.Price}円");
             }
+            Console.WriteLine($"金額の合計{selected.Sum(b => b.Price)}");
         }
-        //while (true) {
-        //    years.Add(int.Parse(Console.ReadLine()));
-        //    if (years.Contains(-1)) {
-        //        var books = Library.Books.Where(b => years.Contains(b.PublishedYear));
-
-        //        foreach (var book in books) {
-        //            Console.WriteLine(book);
-        //        }
-        //    }
-        //    break;
-        //}
-
-
     }
 }
 
