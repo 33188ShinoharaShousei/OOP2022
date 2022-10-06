@@ -26,6 +26,7 @@ namespace Exercise1 {
         }
 
         private static void Exercise1_2() {
+
         }
 
         private static void Exercise1_3() {
