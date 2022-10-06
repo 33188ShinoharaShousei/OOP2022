@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Chapter15 {
+namespace Exercise1 {
     public class Category {
         public int Id { get; set; }
         public string Name { get; set; }
