@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,20 +21,57 @@ namespace ColorChecker {
     public partial class MainWindow : Window {
         public MainWindow() {
             InitializeComponent();
-        }
-
-        
-
-        private void rSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
+            DataContext = GetColorList(); //←追加
 
         }
 
-        private void gSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
-
+        /// <summary>
+        /// すべての色を取得するメソッド
+        /// </summary>
+        /// <returns></returns>
+        private MyColor[] GetColorList() {
+            return typeof(Colors).GetProperties(BindingFlags.Public | BindingFlags.Static)
+                .Select(i => new MyColor() { Color = (Color)i.GetValue(null), Name = i.Name }).ToArray();
         }
 
-        private void bSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
+        private void setColor() {
+            var r = byte.Parse(rValue.Text);
+            var g = byte.Parse(gValue.Text);
+            var b = byte.Parse(bValue.Text);
+            ColorArea.Background = new SolidColorBrush(Color.FromRgb(r, g, b));
+        }
+
+
+
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
+            setColor();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e) {
+            setColor();
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            var mycolor = (MyColor)((ComboBox)sender).SelectedItem;
+            var color = mycolor.Color;
+            //var name = mycolor.Name;
+            rValue.Text = Convert.ToString(color.R, 10);
+            gValue.Text = Convert.ToString(color.G, 10);
+            bValue.Text = Convert.ToString(color.B, 10);
+            setColor();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e) {
 
         }
+    }
+
+
+    /// <summary>
+    /// 色と色名を保持するクラス
+    /// </summary>
+    public class MyColor {
+        public Color Color { get; set; }
+        public string Name { get; set; }
     }
 }
