@@ -22,7 +22,7 @@ namespace ColorChecker {
         public MainWindow() {
             InitializeComponent();
             DataContext = GetColorList(); //←追加
-
+            List<MyColor> myColors = new List<MyColor>();
         }
 
         /// <summary>
@@ -61,7 +61,14 @@ namespace ColorChecker {
             setColor();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e) {
+        private void Stock_Click(object sender, RoutedEventArgs e) {
+            /*MyColor myColor = new MyColor {
+                Color = Color.FromRgb()
+            };*/
+            listBox.Items.Add($"R:{rValue.Text}");
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e) {
 
         }
     }
