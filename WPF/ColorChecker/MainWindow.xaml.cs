@@ -19,10 +19,11 @@ namespace ColorChecker {
     /// MainWindow.xaml の相互作用ロジック
     /// </summary>
     public partial class MainWindow : Window {
+        List<MyColor> myColors = new List<MyColor>();
         public MainWindow() {
             InitializeComponent();
             DataContext = GetColorList(); //←追加
-            List<MyColor> myColors = new List<MyColor>();
+            
         }
 
         /// <summary>
@@ -62,16 +63,33 @@ namespace ColorChecker {
         }
 
         private void Stock_Click(object sender, RoutedEventArgs e) {
-            /*MyColor myColor = new MyColor {
-                Color = Color.FromRgb()
-            };*/
-            listBox.Items.Insert(0,$"R:{rValue.Text} G:{gValue.Text} B:{bValue.Text}");
+            MyColor newColor = new MyColor {
+                
+                Color = Color.FromRgb(byte.Parse(rValue.Text), byte.Parse(gValue.Text), byte.Parse(bValue.Text))
+        };
+            myColors.Add(newColor);
+            listBox.Items.Insert(0, $"R:{rValue.Text} G:{gValue.Text} B:{bValue.Text}");
+
+            var colorName = ((IEnumerable<MyColor>)DataContext)
+                                .Where(c => c.Color.R == newColor.Color.R &&
+                                            c.Color.G == newColor.Color.G &&
+                                            c.Color.B == newColor.Color.B).FirstOrDefault();
+            listBox.Items.Insert(0, colorName?.Name ?? "R:" + rValue.Text + "G:" + gValue.Text + "B:" + bValue.Text);
+            myColors.Insert(0,newColor);
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e) {
             if (listBox.SelectedIndex == -1) return;
             int sel = listBox.SelectedIndex;
             listBox.Items.RemoveAt(sel);
+        }
+
+        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            rSlider.Value = myColors[listBox.SelectedIndex].Color.R;
+            gSlider.Value = myColors[listBox.SelectedIndex].Color.G;
+            bSlider.Value = myColors[listBox.SelectedIndex].Color.B;
+
+            setColor();
         }
     }
 

@@ -12,7 +12,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="ColorArea"/>
+        <Label x:Name="ColorArea" Content="{Binding SelectedValue}"/>
         <Grid Grid.Column ="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -66,7 +66,7 @@
 
             <Button Grid.Row="0" Content ="STOCK" FontSize="20"  Click="Stock_Click"/>
             <Button Grid.Row="0" Grid.Column="1" Content="DELETE" FontSize="20" Click="Delete_Click"/>
-            <ListBox x:Name="listBox" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
+            <ListBox x:Name="listBox" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3" SelectionChanged="listBox_SelectionChanged"/>
 
 
         </Grid>
