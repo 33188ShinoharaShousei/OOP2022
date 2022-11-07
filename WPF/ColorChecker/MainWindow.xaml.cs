@@ -65,11 +65,13 @@ namespace ColorChecker {
             /*MyColor myColor = new MyColor {
                 Color = Color.FromRgb()
             };*/
-            listBox.Items.Add($"R:{rValue.Text}");
+            listBox.Items.Add($"R:{rValue.Text} G:{gValue.Text} B:{bValue.Text}");
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e) {
-
+            if (listBox.SelectedIndex == -1) return;
+            int sel = listBox.SelectedIndex;
+            listBox.Items.RemoveAt(sel);
         }
     }
 
