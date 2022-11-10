@@ -63,28 +63,38 @@ namespace ColorChecker {
         }
 
         private void Stock_Click(object sender, RoutedEventArgs e) {
-            MyColor newColor = new MyColor {
-                
-                Color = Color.FromRgb(byte.Parse(rValue.Text), byte.Parse(gValue.Text), byte.Parse(bValue.Text))
-        };
-            myColors.Add(newColor);
-            listBox.Items.Insert(0, $"R:{rValue.Text} G:{gValue.Text} B:{bValue.Text}");
+            //MyColor newColor = new MyColor {
+            //    Color = Color.FromRgb(byte.Parse(rValue.Text), byte.Parse(gValue.Text), byte.Parse(bValue.Text))
+            //};
+            //myColors.Add(newColor);
+            //listBox.Items.Insert(0, $"R:{rValue.Text} G:{gValue.Text} B:{bValue.Text}");
 
-            var colorName = ((IEnumerable<MyColor>)DataContext)
-                                .Where(c => c.Color.R == newColor.Color.R &&
-                                            c.Color.G == newColor.Color.G &&
-                                            c.Color.B == newColor.Color.B).FirstOrDefault();
-            listBox.Items.Insert(0, colorName?.Name ?? "R:" + rValue.Text + "G:" + gValue.Text + "B:" + bValue.Text);
-            myColors.Insert(0,newColor);
+            var stColor = getColorName(byte.Parse(rValue.Text), byte.Parse(gValue.Text), byte.Parse(bValue.Text));
+            listBox.Items.Insert(0, stColor.Name ?? "R:" + stColor.Color.R + "G:" + stColor.Color.G + "B:" + stColor.Color.B);
+            myColors.Insert(0, stColor);
+        }
+        private MyColor getColorName(byte r,byte g, byte b) { 
+            return new MyColor { 
+                Color = Color.FromRgb(r,g,b),
+                Name = ((IEnumerable<MyColor>)DataContext)
+                                .Where(c => c.Color.R == r &&
+                                            c.Color.G == g &&
+                                            c.Color.B == b)
+                                .Select(c => c.Name).FirstOrDefault(),
+           };
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e) {
             if (listBox.SelectedIndex == -1) return;
-            int sel = listBox.SelectedIndex;
-            listBox.Items.RemoveAt(sel);
+            //int sel = listBox.SelectedIndex;
+            myColors.RemoveAt(listBox.SelectedIndex);
+            listBox.Items.RemoveAt(listBox.SelectedIndex);
+            
         }
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if (listBox.SelectedIndex == -1) return;
+
             rSlider.Value = myColors[listBox.SelectedIndex].Color.R;
             gSlider.Value = myColors[listBox.SelectedIndex].Color.G;
             bSlider.Value = myColors[listBox.SelectedIndex].Color.B;
