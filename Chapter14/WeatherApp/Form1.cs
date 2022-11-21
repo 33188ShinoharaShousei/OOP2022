@@ -18,17 +18,30 @@ namespace WeatherApp {
             InitializeComponent();
         }
         public int areaCode;
+        public int weatherCode;
         private void btWeathorGet_Click(object sender, EventArgs e) {
             var wc = new WebClient() {
                 Encoding = Encoding.UTF8
             };
-            var dString = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/data/overview_forecast/{areaCode}.json");
-
-            var json = JsonConvert.DeserializeObject<Rootobject>(dString);
-
+            string dString;
+            string cstring;
+            string bstring;
+            if (areaCode > 99999) {
+                //dString = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/data/overview_forecast/{areaCode}.json");
+                //cstring = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/img/{weatherCode}.svg");
+                bstring = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/data/forecast/{areaCode}.json");
+            } else {
+                //dString = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/data/overview_forecast/0{areaCode}.json");
+                //cstring = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/img/{weatherCode}.svg");
+                bstring = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/data/forecast/0{areaCode}.json");
+            }
+            var json = JsonConvert.DeserializeObject<Rootobject>(bstring);
+            //var weather = ;
+            //var wp = JsonConvert.DeserializeObject<Area4>(bstring);
             psOffices.Text = json.publishingOffice;
             data.Text = json.text;
-
+            Area.Text = json.targetArea;
+            //weatherPic.Image = 
         }
         
         private void Form1_Load(object sender, EventArgs e) {
@@ -92,6 +105,7 @@ namespace WeatherApp {
             switch (cbarea.Text) {
                 case "群馬県":
                     areaCode = 100000;
+                    //weatherCode = 
                     break;
                 case "栃木県":
                     areaCode = 090000;

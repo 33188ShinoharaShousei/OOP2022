@@ -31,6 +31,9 @@ namespace WeatherApp {
             this.label8 = new System.Windows.Forms.Label();
             this.data = new System.Windows.Forms.TextBox();
             this.psOffices = new System.Windows.Forms.TextBox();
+            this.Area = new System.Windows.Forms.TextBox();
+            this.weatherPic = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.weatherPic)).BeginInit();
             this.SuspendLayout();
             // 
             // btWeathorGet
@@ -64,7 +67,7 @@ namespace WeatherApp {
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 77);
+            this.label3.Location = new System.Drawing.Point(493, 418);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 12);
             this.label3.TabIndex = 7;
@@ -73,7 +76,7 @@ namespace WeatherApp {
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 252);
+            this.label8.Location = new System.Drawing.Point(10, 300);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(29, 12);
             this.label8.TabIndex = 7;
@@ -81,25 +84,46 @@ namespace WeatherApp {
             // 
             // data
             // 
-            this.data.Location = new System.Drawing.Point(81, 252);
+            this.data.Location = new System.Drawing.Point(47, 296);
             this.data.Multiline = true;
             this.data.Name = "data";
-            this.data.Size = new System.Drawing.Size(362, 186);
+            this.data.Size = new System.Drawing.Size(362, 142);
             this.data.TabIndex = 8;
             // 
             // psOffices
             // 
-            this.psOffices.Location = new System.Drawing.Point(81, 65);
+            this.psOffices.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.psOffices.Location = new System.Drawing.Point(551, 406);
             this.psOffices.Multiline = true;
             this.psOffices.Name = "psOffices";
-            this.psOffices.Size = new System.Drawing.Size(291, 32);
+            this.psOffices.Size = new System.Drawing.Size(237, 32);
             this.psOffices.TabIndex = 8;
+            // 
+            // Area
+            // 
+            this.Area.Font = new System.Drawing.Font("MS UI Gothic", 45F);
+            this.Area.Location = new System.Drawing.Point(469, 12);
+            this.Area.Multiline = true;
+            this.Area.Name = "Area";
+            this.Area.Size = new System.Drawing.Size(318, 68);
+            this.Area.TabIndex = 9;
+            // 
+            // weatherPic
+            // 
+            this.weatherPic.Location = new System.Drawing.Point(47, 90);
+            this.weatherPic.Name = "weatherPic";
+            this.weatherPic.Size = new System.Drawing.Size(167, 140);
+            this.weatherPic.TabIndex = 10;
+            this.weatherPic.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::WeatherApp.Properties.Resources.スクリーンショット__6_;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.weatherPic);
+            this.Controls.Add(this.Area);
             this.Controls.Add(this.psOffices);
             this.Controls.Add(this.data);
             this.Controls.Add(this.label8);
@@ -110,6 +134,7 @@ namespace WeatherApp {
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.weatherPic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,6 +148,8 @@ namespace WeatherApp {
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox data;
         private System.Windows.Forms.TextBox psOffices;
+        private System.Windows.Forms.TextBox Area;
+        private System.Windows.Forms.PictureBox weatherPic;
     }
 }
 
