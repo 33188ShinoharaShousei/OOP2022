@@ -299,5 +299,11 @@ namespace WeatherApp {
                 MessageBox.Show("インターネットの接続を確認して再起動してください。", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void weatherPic_Click(object sender, EventArgs e) {
+            if (data.Text == "晴れ") {
+                weatherCode = 100;
+            }
+        }
     }
 }

@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="cloudy_118029.ico" />
+    <None Include="Resources\mark_tenki_hare.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

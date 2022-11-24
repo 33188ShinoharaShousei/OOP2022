@@ -73,6 +73,16 @@ namespace WeatherApp.Properties {
         /// <summary>
         ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
         /// </summary>
+        internal static System.Drawing.Bitmap mark_tenki_hare {
+            get {
+                object obj = ResourceManager.GetObject("mark_tenki_hare", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
         internal static System.Drawing.Bitmap スクリーンショット__4_ {
             get {
                 object obj = ResourceManager.GetObject("スクリーンショット (4)", resourceCulture);

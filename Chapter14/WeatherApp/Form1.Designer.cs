@@ -94,11 +94,14 @@ namespace WeatherApp {
             // weatherPic
             // 
             this.weatherPic.BackColor = System.Drawing.Color.Transparent;
-            this.weatherPic.Location = new System.Drawing.Point(479, 75);
+            this.weatherPic.Image = global::WeatherApp.Properties.Resources.mark_tenki_hare;
+            this.weatherPic.Location = new System.Drawing.Point(478, 85);
             this.weatherPic.Name = "weatherPic";
-            this.weatherPic.Size = new System.Drawing.Size(309, 190);
+            this.weatherPic.Size = new System.Drawing.Size(309, 235);
+            this.weatherPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.weatherPic.TabIndex = 10;
             this.weatherPic.TabStop = false;
+            this.weatherPic.Click += new System.EventHandler(this.weatherPic_Click);
             // 
             // Area
             // 
