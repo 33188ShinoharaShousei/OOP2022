@@ -24,20 +24,23 @@ namespace WeatherApp {
         /// コード エディターで変更しないでください。
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btWeathorGet = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cbarea = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.data = new System.Windows.Forms.TextBox();
-            this.psOffices = new System.Windows.Forms.TextBox();
-            this.Area = new System.Windows.Forms.TextBox();
             this.weatherPic = new System.Windows.Forms.PictureBox();
+            this.Area = new System.Windows.Forms.Label();
+            this.psOffices = new System.Windows.Forms.Label();
+            this.data = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.weatherPic)).BeginInit();
             this.SuspendLayout();
             // 
             // btWeathorGet
             // 
+            this.btWeathorGet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btWeathorGet.Location = new System.Drawing.Point(12, 12);
             this.btWeathorGet.Name = "btWeathorGet";
             this.btWeathorGet.Size = new System.Drawing.Size(112, 39);
@@ -48,15 +51,19 @@ namespace WeatherApp {
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(194, 25);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.label1.Location = new System.Drawing.Point(186, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 12);
+            this.label1.Size = new System.Drawing.Size(57, 25);
             this.label1.TabIndex = 2;
             this.label1.Text = "地域";
             // 
             // cbarea
             // 
+            this.cbarea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbarea.FormattingEnabled = true;
             this.cbarea.Location = new System.Drawing.Point(244, 22);
             this.cbarea.Name = "cbarea";
@@ -66,55 +73,60 @@ namespace WeatherApp {
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(493, 418);
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.label3.Location = new System.Drawing.Point(462, 408);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.Size = new System.Drawing.Size(73, 26);
             this.label3.TabIndex = 7;
             this.label3.Text = "発表者";
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(10, 300);
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.label8.Location = new System.Drawing.Point(10, 268);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(29, 12);
+            this.label8.Size = new System.Drawing.Size(50, 26);
             this.label8.TabIndex = 7;
             this.label8.Text = "概要";
             // 
-            // data
+            // weatherPic
             // 
-            this.data.Location = new System.Drawing.Point(47, 296);
-            this.data.Multiline = true;
-            this.data.Name = "data";
-            this.data.Size = new System.Drawing.Size(362, 142);
-            this.data.TabIndex = 8;
-            // 
-            // psOffices
-            // 
-            this.psOffices.Font = new System.Drawing.Font("MS UI Gothic", 15F);
-            this.psOffices.Location = new System.Drawing.Point(551, 406);
-            this.psOffices.Multiline = true;
-            this.psOffices.Name = "psOffices";
-            this.psOffices.Size = new System.Drawing.Size(237, 32);
-            this.psOffices.TabIndex = 8;
+            this.weatherPic.BackColor = System.Drawing.Color.Transparent;
+            this.weatherPic.Location = new System.Drawing.Point(479, 75);
+            this.weatherPic.Name = "weatherPic";
+            this.weatherPic.Size = new System.Drawing.Size(309, 190);
+            this.weatherPic.TabIndex = 10;
+            this.weatherPic.TabStop = false;
             // 
             // Area
             // 
-            this.Area.Font = new System.Drawing.Font("MS UI Gothic", 45F);
-            this.Area.Location = new System.Drawing.Point(469, 12);
-            this.Area.Multiline = true;
+            this.Area.BackColor = System.Drawing.Color.Transparent;
+            this.Area.Font = new System.Drawing.Font("MS UI Gothic", 30F);
+            this.Area.Location = new System.Drawing.Point(415, 12);
             this.Area.Name = "Area";
-            this.Area.Size = new System.Drawing.Size(318, 68);
-            this.Area.TabIndex = 9;
+            this.Area.Size = new System.Drawing.Size(372, 39);
+            this.Area.TabIndex = 11;
             // 
-            // weatherPic
+            // psOffices
             // 
-            this.weatherPic.Location = new System.Drawing.Point(47, 90);
-            this.weatherPic.Name = "weatherPic";
-            this.weatherPic.Size = new System.Drawing.Size(167, 140);
-            this.weatherPic.TabIndex = 10;
-            this.weatherPic.TabStop = false;
+            this.psOffices.BackColor = System.Drawing.Color.Transparent;
+            this.psOffices.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.psOffices.Location = new System.Drawing.Point(540, 408);
+            this.psOffices.Name = "psOffices";
+            this.psOffices.Size = new System.Drawing.Size(247, 26);
+            this.psOffices.TabIndex = 12;
+            // 
+            // data
+            // 
+            this.data.AutoEllipsis = true;
+            this.data.BackColor = System.Drawing.Color.Transparent;
+            this.data.Font = new System.Drawing.Font("MS UI Gothic", 12F);
+            this.data.Location = new System.Drawing.Point(66, 269);
+            this.data.Name = "data";
+            this.data.Size = new System.Drawing.Size(378, 172);
+            this.data.TabIndex = 13;
             // 
             // Form1
             // 
@@ -122,21 +134,23 @@ namespace WeatherApp {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WeatherApp.Properties.Resources.スクリーンショット__6_;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.weatherPic);
-            this.Controls.Add(this.Area);
-            this.Controls.Add(this.psOffices);
             this.Controls.Add(this.data);
+            this.Controls.Add(this.psOffices);
+            this.Controls.Add(this.Area);
+            this.Controls.Add(this.weatherPic);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbarea);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btWeathorGet);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(816, 489);
+            this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "天気概況アプリ";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.weatherPic)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -146,10 +160,10 @@ namespace WeatherApp {
         private System.Windows.Forms.ComboBox cbarea;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox data;
-        private System.Windows.Forms.TextBox psOffices;
-        private System.Windows.Forms.TextBox Area;
         private System.Windows.Forms.PictureBox weatherPic;
+        private System.Windows.Forms.Label Area;
+        private System.Windows.Forms.Label psOffices;
+        private System.Windows.Forms.Label data;
     }
 }
 

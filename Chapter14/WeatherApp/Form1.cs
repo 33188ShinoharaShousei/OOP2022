@@ -17,33 +17,16 @@ namespace WeatherApp {
         public Form1() {
             InitializeComponent();
         }
+
         public int areaCode;
         public int weatherCode;
+
+
         private void btWeathorGet_Click(object sender, EventArgs e) {
-            var wc = new WebClient() {
-                Encoding = Encoding.UTF8
-            };
-            string dString;
-            string cstring;
-            string bstring;
-            if (areaCode > 99999) {
-                //dString = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/data/overview_forecast/{areaCode}.json");
-                //cstring = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/img/{weatherCode}.svg");
-                bstring = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/data/forecast/{areaCode}.json");
-            } else {
-                //dString = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/data/overview_forecast/0{areaCode}.json");
-                //cstring = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/img/{weatherCode}.svg");
-                bstring = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/data/forecast/0{areaCode}.json");
-            }
-            var json = JsonConvert.DeserializeObject<Rootobject>(bstring);
-            //var weather = ;
-            //var wp = JsonConvert.DeserializeObject<Area4>(bstring);
-            psOffices.Text = json.publishingOffice;
-            data.Text = json.text;
-            Area.Text = json.targetArea;
+            weatherGet();
             //weatherPic.Image = 
         }
-        
+
         private void Form1_Load(object sender, EventArgs e) {
             cbarea.Items.Add("宗谷地方");
             cbarea.Items.Add("上川・留萌地方");
@@ -99,13 +82,17 @@ namespace WeatherApp {
             cbarea.Items.Add("大東島地方");
             cbarea.Items.Add("宮古島地方");
             cbarea.Items.Add("八重山地方");
+
+            cbarea.SelectedIndex = 0;
+            weatherGet();
+
+
         }
 
         private void cbarea_SelectedIndexChanged(object sender, EventArgs e) {
             switch (cbarea.Text) {
                 case "群馬県":
                     areaCode = 100000;
-                    //weatherCode = 
                     break;
                 case "栃木県":
                     areaCode = 090000;
@@ -278,6 +265,38 @@ namespace WeatherApp {
                 case "八重山地方":
                     areaCode = 474000;
                     break;
+            }
+        }
+
+        private void weatherGet() {
+            var wc = new WebClient() {
+                Encoding = Encoding.UTF8
+            };
+            try {
+                string dString;
+                //string cstring;
+                //string bstring;
+                if (areaCode > 99999) {
+                    dString = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/data/overview_forecast/{areaCode}.json");
+                    //cstring = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/img/{weatherCode}.svg");
+                    //bstring = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/data/forecast/{areaCode}.json");
+                } else {
+                    dString = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/data/overview_forecast/0{areaCode}.json");
+                    //cstring = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/img/{weatherCode}.svg");
+                    //bstring = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/data/forecast/0{areaCode}.json");
+                }
+                var json = JsonConvert.DeserializeObject<Rootobject>(dString);
+                //var weather = JsonConvert.DeserializeObject<Class1>(bstring);
+
+                psOffices.Text = json.publishingOffice;
+                data.Text = json.text;
+                Area.Text = json.targetArea;
+
+
+
+            }
+            catch {
+                MessageBox.Show("インターネットの接続を確認して再起動してください。", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
