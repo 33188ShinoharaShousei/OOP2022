@@ -1,0 +1,18 @@
+﻿<Window x:Class="Cafe.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="Cafe"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="Cafe's Search" Height="480" Width="494">
+    <Grid>
+        <ScrollViewer  VerticalScrollBarVisibility="Visible">
+            <TextBlock x:Name="textBlock" TextWrapping="Wrap" Height="1024">
+                    <Button Content="都道府県" HorizontalAlignment="Left" Margin="182,60,0,0" VerticalAlignment="Top" Width="100" Height="34" Click="Button_Click" FontSize="20"/>
+                    <DataGrid  Height="1000" Width="468"/>
+            </TextBlock>
+        </ScrollViewer>
+    </Grid>
+</Window>

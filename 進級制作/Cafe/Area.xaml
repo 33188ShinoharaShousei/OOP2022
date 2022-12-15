@@ -1,0 +1,139 @@
+﻿<Window x:Class="Cafe.Area"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cafe"
+        mc:Ignorable="d"
+        Title="Area" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="25"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="25"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="25"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="25"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="25"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="25"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="25"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="25"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="都道府県" Grid.Column="7" Grid.ColumnSpan="4" Content="都道府県で検索" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <CheckBox x:Name="北" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb北" Grid.Row="1" Grid.Column="1" Content="北海道" VerticalAlignment="Center"/>
+        <CheckBox x:Name="青" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb青" Grid.Row="1" Grid.Column="3" Content="青森県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="岩" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb岩" Grid.Row="1" Grid.Column="5" Content="岩手県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="宮" Grid.Row="1" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb宮" Grid.Row="1" Grid.Column="7" Content="宮城県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="秋" Grid.Row="1" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb秋" Grid.Row="1" Grid.Column="9" Content="秋田県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="山" Grid.Row="1" Grid.Column="10" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb山" Grid.Row="1" Grid.Column="11" Content="山形県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="福" Grid.Row="1" Grid.Column="12" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb福" Grid.Row="1" Grid.Column="13" Content="福島県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="茨" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb茨" Grid.Row="2" Grid.Column="1" Content="茨城県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="栃" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb栃" Grid.Row="2" Grid.Column="3" Content="栃木県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="群" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb群" Grid.Row="2" Grid.Column="5" Content="群馬県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="埼" Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb埼" Grid.Row="2" Grid.Column="7" Content="埼玉県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="千" Grid.Row="2" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb千" Grid.Row="2" Grid.Column="9" Content="千葉県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="東" Grid.Row="2" Grid.Column="10" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb東" Grid.Row="2" Grid.Column="11" Content="東京都" VerticalAlignment="Center"/>
+        <CheckBox x:Name="神" Grid.Row="2" Grid.Column="12" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb神" Grid.Row="2" Grid.Column="13" Content="神奈川県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="新" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb新" Grid.Row="3" Grid.Column="1" Content="新潟県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="富" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb富" Grid.Row="3" Grid.Column="3" Content="富山県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="石" Grid.Row="3" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb石" Grid.Row="3" Grid.Column="5" Content="石川県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="福井" Grid.Row="3" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb福井" Grid.Row="3" Grid.Column="7" Content="福井県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="山梨" Grid.Row="3" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb山梨" Grid.Row="3" Grid.Column="9" Content="山梨県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="長" Grid.Row="3" Grid.Column="10" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb長" Grid.Row="3" Grid.Column="11" Content="長野県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="岐" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb岐" Grid.Row="4" Grid.Column="1" Content="岐阜県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="静" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb静" Grid.Row="4" Grid.Column="3" Content="静岡県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="愛" Grid.Row="4" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb愛" Grid.Row="4" Grid.Column="5" Content="愛知県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="三" Grid.Row="4" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb三" Grid.Row="4" Grid.Column="7" Content="三重県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="滋" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb滋" Grid.Row="5" Grid.Column="1" Content="佐賀県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="京" Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb京" Grid.Row="5" Grid.Column="3" Content="京都府" VerticalAlignment="Center"/>
+        <CheckBox x:Name="大" Grid.Row="5" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb大" Grid.Row="5" Grid.Column="5" Content="大阪府" VerticalAlignment="Center"/>
+        <CheckBox x:Name="兵" Grid.Row="5" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb兵" Grid.Row="5" Grid.Column="7" Content="兵庫県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="奈" Grid.Row="5" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb奈" Grid.Row="5" Grid.Column="9" Content="奈良県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="和" Grid.Row="5" Grid.Column="10" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb和" Grid.Row="5" Grid.Column="11" Content="和歌山県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="鳥" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb鳥" Grid.Row="6" Grid.Column="1" Content="鳥取県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="島" Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb島" Grid.Row="6" Grid.Column="3" Content="島根県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="岡" Grid.Row="6" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb岡" Grid.Row="6" Grid.Column="5" Content="岡山県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="広" Grid.Row="6" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb広" Grid.Row="6" Grid.Column="7" Content="広島県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="山口" Grid.Row="6" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb山口" Grid.Row="6" Grid.Column="9" Content="山口県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="徳" Grid.Row="6" Grid.Column="10" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb徳" Grid.Row="6" Grid.Column="11" Content="徳島県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="香" Grid.Row="6" Grid.Column="12" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb香" Grid.Row="6" Grid.Column="13" Content="香川県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="愛媛" Grid.Row="6" Grid.Column="14" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb愛媛" Grid.Row="6" Grid.Column="15" Content="愛媛県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="高" Grid.Row="6" Grid.Column="16" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb高" Grid.Row="6" Grid.Column="17" Content="高知県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="福岡" Grid.Row="7" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb福岡" Grid.Row="7" Grid.Column="1" Content="福岡県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="佐" Grid.Row="7" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb佐" Grid.Row="7" Grid.Column="3" Content="佐賀県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="長崎" Grid.Row="7" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb長崎" Grid.Row="7" Grid.Column="5" Content="長崎県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="熊" Grid.Row="7" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb熊" Grid.Row="7" Grid.Column="7" Content="熊本県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="大分" Grid.Row="7" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb大分" Grid.Row="7" Grid.Column="9" Content="大分県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="宮崎" Grid.Row="7" Grid.Column="10" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb宮崎" Grid.Row="7" Grid.Column="11" Content="宮崎県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="鹿" Grid.Row="7" Grid.Column="12" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb鹿" Grid.Row="7" Grid.Column="13" Content="鹿児島県" VerticalAlignment="Center"/>
+        <CheckBox x:Name="沖" Grid.Row="7" Grid.Column="14" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label x:Name="tb沖" Grid.Row="7" Grid.Column="15" Content="沖縄県" VerticalAlignment="Center"/>
+        <Button x:Name="btChoosed" Content="この条件で絞り込む" Grid.Row="8" Grid.ColumnSpan="18" FontSize="20" Background="Gray" Click="btChoosed_Click"/>
+    </Grid>
+</Window>
